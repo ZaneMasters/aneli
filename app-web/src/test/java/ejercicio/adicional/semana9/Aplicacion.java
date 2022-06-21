@@ -1,20 +1,43 @@
 package ejercicio.adicional.semana9;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
+
+import ar.com.educacionit.collections.Cliente;
 
 public class Aplicacion {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
+		
+		Set<Alumno> alumnos = new HashSet<>();  
+		
+		alumnos.add(new Alumno(1234,"carlos","cordova"));
+		alumnos.add(new Alumno(5641,"fede","armaldo"));
+		alumnos.add(new Alumno(5410,"karen","rojas"));
+		alumnos.add(new Alumno(9845,"yeni","rido"));
+		
+		Set<Materia> materias = new HashSet<>();  
+		
+		materias.add(new Materia(12345,"Algebra",1));
+		materias.add(new Materia(45621,"Ingles",1));
+		materias.add(new Materia(87543,"Quimica",1));
+		
+		//System.out.println(alumnos);
+		
 		Scanner teclado = new Scanner(System.in);
 		Menu menu1= new Menu();		
-		Alumno lu= new Alumno();
-		Materia ma=new Materia();
-		DatosDBMemoria datas= new DatosDBMemoria();
 		boolean opcioncorrecta=true;
 		int a=0;
 		boolean menues=true;
+		String nom="";
+		int id=0;
+		String ape="";
 		
 		do {
 			while(opcioncorrecta) {
@@ -36,60 +59,48 @@ public class Aplicacion {
 			
 			switch (a) {
 			case 1:
-				System.out.println("Inserte el numero del estudiante para inscribir materia mostrado a continuacion:");
-				int i=0;
-				for (String uwu:lu.Nombre) {
-					System.out.println(i+". "+uwu + " "+ lu.Apellido[i]);
-					i=i+1;
-				}
-				int b = teclado.nextInt();
 				
+				System.out.println("Inserte estudiante, id, nombre y apellido: ");
+				id=teclado.nextInt();
+				nom=teclado.next();
+				ape=teclado.next();
 				
-				System.out.println("Inserte el ID de la materia que desea inscribir para el estudiante: " + lu.Nombre[b]+" "+lu.Apellido[b]);
-				i=0;
-				for (String uwu:ma.materia) {
-					System.out.println("ID:"+ma.ID[i]+" "+uwu);
-					i=i+1;
+				alumnos.add(new Alumno(id,nom,ape));
+				
+				System.out.println(alumnos);
+				
+				Iterator<Alumno> itNombres = alumnos.iterator();
+				while(itNombres.hasNext()) {
+					Alumno dato = itNombres.next();
+					System.out.println("Dato: " + String.valueOf(dato));
 				}
 			
-				opcioncorrecta=true;
-				while(opcioncorrecta) {
-					int c = teclado.nextInt();
-					if(c==123 || c==265 || c==348 || c==489) {
-						int aux=0;
-						if(c==123)
-							aux=0;
-						else if(c==265)
-							aux=1;
-						else if(c==348)
-							aux=2;
-						else
-							aux=3;
-						
-						System.out.println("El estudiante "+lu.Nombre[b]+" "+lu.Apellido[b]+" quedo inscrito en la materia: "+ma.materia[aux]);
-						opcioncorrecta=false;
-						datas.DatosDBMemoria1(b,aux);
-						datas.propiedades(b);
-						break;
-					}
-					else
-						System.out.println("Materia no reconocida, intente poner el ID correcto nuevamente...");
-				}
-
 				break;
 			case 2:
+				
+				System.out.println("Inserte el numero de la matricula del estudiante que quiere elmininar: ");
+				id = teclado.nextInt();
+				
+				itNombres = alumnos.iterator();
+				while(itNombres.hasNext()) {
+					Alumno nombre = itNombres.next();
+					if(nombre.equals(id)) {
+						itNombres.remove();
+					}
+				}
 				break;
 			case 3:
-				System.out.println("Cual alumno desea ver su inscripcion: ");
-				i=0;
-				for (String uwu:lu.Nombre) {
-					System.out.println(i+". "+uwu + " "+ lu.Apellido[i]);
-					i=i+1;
+				System.out.println("Inserte el numero de la matricula del estudiante que buscar: ");
+				id = teclado.nextInt();
+				
+				itNombres = alumnos.iterator();
+				while(itNombres.hasNext()) {
+					Alumno nombre = itNombres.next();
+					if(nombre.equals(id)) {
+						System.out.println(nombre);
+					}
 				}
-				int ewe = teclado.nextInt();
 				
-				
-				datas.propiedades(ewe);
 				
 				
 				break;
@@ -114,5 +125,5 @@ public class Aplicacion {
 		
 		teclado.close();
 	}
-
 }
+
