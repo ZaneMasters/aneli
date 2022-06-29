@@ -5,9 +5,13 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>primer artefacto creador con maven+eclipse+github</name>
+  <properties>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>	
+  </properties>
   <modules>
-  	<module>pruebas</module>
   	<module>app-web</module>
   	<module>app-domain</module>
   </modules>
+	
 </project>
