@@ -1,23 +1,35 @@
 package ar.com.educacionit.domain;
 
-public class Categoria {
+public class Categorias implements Entity{
 
 	//atributos
 	private Long id;
 	private String descripcion;
 	private String codigo;
+	private Long habilitada;
 	
-	public Categoria(Long id, String descripcion, String codigo) {
-		super();
+	public Categorias() {
+
+	}
+	
+	public Categorias(Long id, String descripcion, String codigo) {
 		this.id = id;
 		this.descripcion = descripcion;
 		this.codigo = codigo;
 	}
 	
-	public Categoria(String descripcion, String codigo) {
-		super();
+	public Categorias(String descripcion, String codigo,Long habiltiada) {
+		setDescripcion(descripcion);
+		//this.descripcion = descripcion;
+		this.codigo = codigo;
+		this.habilitada = habiltiada;
+	}
+	
+	public Categorias(Long id, String descripcion, String codigo,Long habiltiada) {
+		this.id = id;
 		this.descripcion = descripcion;
 		this.codigo = codigo;
+		this.habilitada = habiltiada;
 	}
 
 	public Long getId() {
@@ -48,16 +60,20 @@ public class Categoria {
 	public String toString() {
 		return "Categoria [id=" + id + ", descripcion=" + descripcion + ", codigo=" + codigo + "]";
 	}
-	
-	
+
+	public Long getHabilitada() {
+		return habilitada;
+	}
+
+	public void setHabilitada(Long habilitada) {
+		this.habilitada = habilitada;
+	}
 	
 	//constructor
-	//alt+shift+s
-	
+	//alt+shit+s
 	
 	//metodos
 	
 	//get/set
-	
 	
 }

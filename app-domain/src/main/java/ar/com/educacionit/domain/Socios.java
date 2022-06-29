@@ -1,29 +1,45 @@
 package ar.com.educacionit.domain;
 
-public class Socios {
+import java.util.Date;
+
+public class Socios implements Entity{
 
 	private Long id;
 	private String nombre;
 	private String apellido;
-	private String mail;
+	private String email;
 	private String direccion;
 	private Long paisesId;
+	private Date fechaAlta;
 	
-	public Socios(Long id, String nombre, String apellido, String mail, String direccion, Long paisesId) {
-		super();
+	public Socios() {
+		
+	}
+	
+	public Socios(Long id, String nombre, String apellido, String email, String direccion, Long paisesId) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.mail = mail;
+		this.email = email;
 		this.direccion = direccion;
 		this.paisesId = paisesId;
 	}
+	
+	public Socios(Long id, String nombre, String apellido, String email, String direccion, Long paisesId,Date fechaAlta) {
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.email = email;
+		this.direccion = direccion;
+		this.paisesId = paisesId;
+		this.fechaAlta = fechaAlta;
+	}
 
-	public Socios(String nombre, String apellido, String mail, String direccion, Long paisesId) {
+	public Socios(String nombre, String apellido, String email, String direccion, Long paisesId) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
-		this.mail = mail;
+		this.email = email;
 		this.direccion = direccion;
 		this.paisesId = paisesId;
 	}
@@ -31,7 +47,7 @@ public class Socios {
 	public Long getId() {
 		return id;
 	}
-
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -52,12 +68,12 @@ public class Socios {
 		this.apellido = apellido;
 	}
 
-	public String getMail() {
-		return mail;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getDireccion() {
@@ -75,8 +91,21 @@ public class Socios {
 	public void setPaisesId(Long paisesId) {
 		this.paisesId = paisesId;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Socios [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", email=" + email
+				+ ", direccion=" + direccion + ", paisesId=" + paisesId + "]";
+	}
+
+	public Date getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(Date fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
 	
 	
 }
+
