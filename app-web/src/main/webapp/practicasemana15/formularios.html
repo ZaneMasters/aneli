@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>semana15</title>
+	</head>
+	<body>
+		<header>
+			<h1>Practica Adicional Semana 15</h1>
+		</header>
+		<nav>
+			<ul>
+				<li>Home</li>
+			</ul>
+		</nav>
+		<main>
+			<section>
+				<h2>Datos Personales</h2>
+				<form action="../PracticServlet" method="GET">
+					<label>Nombre *</label>
+					<input type="text" name="nombre">
+					<label>Apellido *</label>
+					<input type="text" name="apellido">
+					<br>
+					<br>
+					<label>Documento *</label>
+					<input type="text" name="documento">
+					<label>Email *</label>
+					<input type="email" name="email">
+					<br>
+					<br>
+					<label>Ocupacion *</label>
+					<input type="text" name="profesion">
+					<br>
+					<br>
+					<label>Rango de Edad</label>
+					<select name="rangoEdad">
+						<option value="18-25">entre 18 y 25</option>
+						<option value="26-36">entre 26 y 36</option>
+						<option value=">36">Mayor a 36</option>
+					</select>
+					<label>Fecha de nacimiento:</label>
+					<input type="date" name="fechaNacimiento">
+					<br>
+					<button>Enviar</button>
+				</form>
+			</section>
+		</main>
+	</body>
+</html>
